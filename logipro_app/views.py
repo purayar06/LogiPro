@@ -1,5 +1,5 @@
 from django.shortcuts import render
-# from .models import TodoListItem 
+from .models import logiProItems 
 from django.http import HttpResponseRedirect 
 
 from django.contrib.auth.decorators import login_required
