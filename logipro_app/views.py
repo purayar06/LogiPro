@@ -10,7 +10,7 @@ def index(request):
 
 
 @login_required(login_url='/login')
-def todoappView(request):
+def logipro_appView(request):
     
     user_email = request.user.email
     all_items = logiProItems.objects.all()
