@@ -16,6 +16,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from .models import *
+from django.shortcuts import render
 # from .forms import CreateUserForm
 # Create your views here.
 
