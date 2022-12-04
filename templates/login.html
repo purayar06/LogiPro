@@ -10,13 +10,20 @@
 </head>
 
 <body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+    </style>
 
 
-    <section class="vh-100" style="background-color:rgb(90, 197, 236);">
-        <div class="container h-100">
+    <section class="vh-100" style="background:;">
+        <div style="color:rgb(0, 255, 255);font-size: 45px;text-align: center;"> <b>Your Ultimate Logistic Partner at
+                CHRIST</b> </div>
+        <br>
+        <br>
+        <div class="container h-80">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-lg-12 col-xl-11">
-                    <div class="card text-black" style="border-radius: 25px;background-color: rgb(90, 236, 236);">
+                    <div class="card text-black" style="border-radius: 25px;background-color: bisque">
                         <div class="card-body p-md-5">
                             <div class=" row justify-content-center ">
                                 <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 ">
@@ -48,12 +55,13 @@
 
                                     </form>
 
-                                    <h6 class=" text-center mt-1 " style="color: var(--light-black); ">Dont have an account <a href="{% url 'userauth:signup' %} " style="color:black ; "><u>Sign Up</u></a> now!</h6>
+                                    <h6 class=" text-center mt-1 " style="color: var(--light-black); ">Dont have an account <a href="{% url 'userauth:signup' %} " style="color:black ; "><u>Sign
+                                                Up</u></a> now!</h6>
 
                                 </div>
                                 <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2 ">
 
-                                    <img src="{% static 'todo1.png' %} " class="img-fluid " alt="Sample image ">
+                                    <img src="{% static 'img/todo1.png' %} " class="img-fluid " alt="Sample image ">
 
                                 </div>
                             </div>
