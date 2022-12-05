@@ -31,12 +31,14 @@ def sign_up(request):
                             username=request.POST['nEmail'],
                             email=request.POST['nEmail'])
                 user.save()
+                print("Registration success")
                 # userdetails = f_users(user_name=user.username, email=user.email,
                 #                           mobile_number=request.POST['nPhone'], user_id=user)
                 # userdetails = f_users(user_Id=user, user_Email=user.email)
                 # userdetails.save()
                 return redirect('userauth:login')
             else:
+                print("Registration is not success")
                 context = {
                     'msg': 'Error in the inputs given, kindly make sure that you are using proper details to create user'
                 }
@@ -49,7 +51,7 @@ def sign_up(request):
 
 def login(request):
 	if request.user.is_authenticated:
-		return redirect('/index')
+		return redirect('/login')
 	else:
 		if request.method == 'POST':
 			Email = request.POST.get('email_address')
@@ -57,15 +59,17 @@ def login(request):
 			user = authenticate(request, username=Email, password=password)
 
 			if user is not None:
+				print('Login is success')
 				login(request, user)
 				if 'next' in request.POST:
 					return redirect(request.POST.get('next'))
 				# elif user.is_staff == 1:
 				# 	return redirect('main:admin_dashboard')
 				else:
-					return redirect('logipro_app:logipro')
+					return redirect('logipro:basicDetails')
 			else:
 				print('Login is not success')
+
 				# messages.info(request, 'Username OR password is incorrect')
 
 		context = {}
