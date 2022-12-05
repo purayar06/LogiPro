@@ -13,7 +13,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
         body {
-            background-image: url("{% static 'img/login1.jpg' %}");
+            background-image: url("{% static 'img/login.jpg' %}");
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -165,11 +165,11 @@
         <div class="container h-80 align-items-center">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-lg-12 col-xl-11">
-                    <div class="card text-black" style="border-radius: 25px;background-color: rgba(124, 244, 255, 0.36);width:850px;height:600px;">
+                    <div class="card text-black" style="border-radius: 25px;background-color: rgba(255, 242, 0, 0.313);width:850px;height:600px;">
                         <div class="card-body p-md-3">
                             <div class=" row justify-content-center ">
                                 <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 ">
-                                    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 " style="color: rgb(255, 255, 255);"><b>Signup</b></p>
+                                    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 " style="color: rgb(0, 0, 0);"><b>Signup</b></p>
 
                                     <form class="mx-1 mx-md-4" method="post">
                                         {% csrf_token %}
@@ -209,6 +209,9 @@
                                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                                             <button class="noselect" type="submit">Register</button>
                                         </div>
+
+                                        <h6 class=" text-center mt-1 " style="color: var(--light-black);color: rgb(255, 255, 255);">Click here to  <a href="{% url 'userauth:login' %} " style="color:rgb(10, 10, 147) ; "><u>login
+                                            </u></a></h6>
 
                                     </form>
 
