@@ -16,3 +16,11 @@ def logipro_appView(request):
     all_items = logiProItems.objects.all()
     all_items = logiProItems.objects.filter(user=user_email)
     return render(request, 'login.html',  {'all_items':all_items})
+
+@login_required(login_url='/login')
+def req_View(request):
+    venue=request.venue
+    print(venue)
+    data=RegItems(venue=venue)
+    data.save()
+    
