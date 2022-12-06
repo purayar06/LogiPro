@@ -16,14 +16,13 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from .models import *
-from django.shortcuts import render
 # from .forms import CreateUserForm
 # Create your views here.
 
 
-def sign_up(request):
+def t_sign_up(request):
     if request.user.is_authenticated:
-        return redirect('/logipro')
+        return redirect('/basicDetails')
     else:
         if request.method == 'POST':
             if request.POST['nPassword1'].strip() == request.POST['nPassword2'].strip():
@@ -31,14 +30,12 @@ def sign_up(request):
                             username=request.POST['nEmail'],
                             email=request.POST['nEmail'])
                 user.save()
-                print("Registration success")
                 # userdetails = f_users(user_name=user.username, email=user.email,
                 #                           mobile_number=request.POST['nPhone'], user_id=user)
                 # userdetails = f_users(user_Id=user, user_Email=user.email)
                 # userdetails.save()
                 return redirect('userauth:login')
             else:
-                print("Registration is not success")
                 context = {
                     'msg': 'Error in the inputs given, kindly make sure that you are using proper details to create user'
                 }
@@ -49,9 +46,9 @@ def sign_up(request):
         return render(request, 'signup.html', context)
 
 
-def login(request):
+def t_login(request):
 	if request.user.is_authenticated:
-		return redirect('/login')
+		return redirect('/basicDetails')
 	else:
 		if request.method == 'POST':
 			Email = request.POST.get('email_address')
@@ -59,18 +56,18 @@ def login(request):
 			user = authenticate(request, username=Email, password=password)
 
 			if user is not None:
-				print('Login is success')
 				login(request, user)
+                #print('Login is success')
 				if 'next' in request.POST:
 					return redirect(request.POST.get('next'))
 				# elif user.is_staff == 1:
 				# 	return redirect('main:admin_dashboard')
 				else:
-					return redirect('logipro:basicDetails')
+					return redirect('logipro_app:basicDetails')
+                    
 			else:
 				print('Login is not success')
-
-				# messages.info(request, 'Username OR password is incorrect')
+				messages.info(request, 'Username OR password is incorrect')
 
 		context = {}
 		return render(request, 'login.html', context)
